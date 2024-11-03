@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Button from '.'
 
 export default {
-  title: 'Button',
+  title: 'Atoms/Button',
   component: Button,
   parameters: {
     // layout: 'fullscreen'

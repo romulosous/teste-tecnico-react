@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Card from '.'
 
 export default {
-  title: 'Card',
+  title: 'Atoms/Card',
   component: Card,
   parameters: {
     // layout: 'fullscreen'

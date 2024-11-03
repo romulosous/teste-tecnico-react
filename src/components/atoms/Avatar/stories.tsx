@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import Avatar from '.'
 
 export default {
-  title: 'Avatar',
+  title: 'Atoms/Avatar',
   component: Avatar,
   parameters: {
     // layout: 'fullscreen'
