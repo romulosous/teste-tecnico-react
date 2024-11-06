@@ -1,10 +1,9 @@
-import { ReactNode } from 'react'
 import * as S from './style'
 
-interface CardProps {
-  children?: ReactNode
-}
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const Card = ({ children }: CardProps) => <S.Wrapper>{children}</S.Wrapper>
+const Card = ({ children, ...props }: CardProps) => (
+  <S.Wrapper {...props}>{children}</S.Wrapper>
+)
 
 export default Card
