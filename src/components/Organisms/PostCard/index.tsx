@@ -1,25 +1,40 @@
+'use client'
 import * as S from './style'
-import Avatar from '@/components/atoms/Avatar'
-import Paragraph from '@/components/atoms/Paragraph'
-import Badge from '@/components/atoms/Badge'
 import Card from '@/components/atoms/Card'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-interface PostCardProps {
-  likes: number
-  comments: number
-  content: string
+export interface Post {
+  userId: number
+  id: number
+  title: string
+  body: string
 }
-const PostCard = ({ comments, content, likes }: PostCardProps) => (
-  <Card>
-    <S.PostContent>
-      <S.PostHeader>
-        <Avatar name="John Doe" userName="johndoe" />
-        <S.PostDate>2 min</S.PostDate>
-      </S.PostHeader>
-      <Paragraph>{content}</Paragraph>
-      <Badge comments={comments} likes={likes} />
-    </S.PostContent>
-  </Card>
-)
+interface PostCardProps {
+  post: Post
+}
+const PostCard = ({ post }: PostCardProps) => {
+  const router = useRouter()
+
+  const navigateToPostDetails = () => {
+    router.push(`/posts/${post.id}`)
+  }
+
+  return (
+    <Card onClick={navigateToPostDetails}>
+      <S.PostContent>
+        <S.PostHeader>
+          <S.Title>{post.title}</S.Title>
+        </S.PostHeader>
+        <S.PostBody>
+          {post.body.slice(0, 100)}
+          {post.body.length > 100 ? ' ...' : ''} <br />{' '}
+          <Link href={`/posts/${post.id}`}>Ler mais</Link>
+        </S.PostBody>
+        {/* <Badge comments={20} likes={120} /> */}
+      </S.PostContent>
+    </Card>
+  )
+}
 
 export default PostCard
