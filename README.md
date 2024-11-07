@@ -49,18 +49,28 @@ This project follows the **Atomic Design** methodology for component organizatio
     - `Templates/`: Component structures for specific page layouts, containing multiple organisms.
     - `Pages/`: High-level page components, each representing a route.
 - `styles/`: Global and theme-based styles using Styled Components.
+
+- 
 ## Páginas do Blog
 Este projeto inclui uma interface de blog com as seguintes páginas principais:
 ### 1. Home - Listagem de Blogs
 A página Home exibe uma listagem de posts do blog, com cada post apresentando um título, uma breve descrição e um link para visualizar os detalhes. Os usuários podem navegar pela lista usando controles de paginação simples. Ao clicar no título ou na imagem de um post, o usuário é direcionado para a **página de Detalhes do Post**.
 Na lateral, uma **sidebar** exibe todos os outros usuários do sistema. Ao clicar no nome de outro usuário na sidebar, o leitor é direcionado para a página de perfil desse usuário.
+
 ![Página de Listagem de Blogs](https://i.imgur.com/WY6dkyr.png) <!-- Substitua pelo caminho real da imagem -->
+
+
 ### 2. Detalhes do Post - Post e Comentários
 Na **página de Detalhes do Post**, os usuários podem ler o conteúdo completo do post selecionado. Abaixo do post, há uma seção de comentários onde os usuários podem visualizar os comentários específicos daquele post, promovendo uma área de discussão interativa. Ao clicar no nome de um usuário nos comentários, o leitor é redirecionado para a **página de Perfil do Usuário**, onde mais detalhes sobre aquele usuário são exibidos.
+
 ![Página de Detalhes do Post](https://github.com/user-attachments/assets/1be346ad-e4d0-40db-a636-d94618eedb01)
+
+
 ### 3. Perfil do Usuário - Informações e Detalhes do Usuário
+
 A **página de Perfil do Usuário** exibe os detalhes completos de um usuário específico, incluindo informações como nome, e-mail e endereço. Além disso, há uma listagem de todos os posts feitos por esse usuário, permitindo visualizar facilmente suas contribuições.
 Na lateral, uma **sidebar** exibe todos os outros usuários do sistema. Ao clicar no nome de outro usuário na sidebar, o leitor é direcionado para a página de perfil desse usuário.
+
 ![Página de Perfil do Usuário](https://github.com/user-attachments/assets/5a223433-51b4-40ec-a347-623fcce3999c)
 ---
 
