@@ -17,6 +17,7 @@ export const PostHeader = styled.div`
 export const Title = styled.h2`
   font-size: 2rem;
   font-weight: 600;
+  color: #ef4723;
 `
 
 export const PostBody = styled.p`

@@ -54,12 +54,12 @@ const PostCard = ({ post }: PostCardProps) => {
   }
 
   return (
-    <Card onClick={navigateToPostDetails}>
+    <Card>
       <S.PostContent>
-        <S.PostHeader>
+        <S.PostHeader onClick={navigateToPostDetails}>
           <S.Title>{post?.title}</S.Title>
         </S.PostHeader>
-        <S.PostBody>
+        <S.PostBody onClick={navigateToPostDetails}>
           {post?.body.slice(0, 100)}
           {post?.body.length > 100 ? ' ...' : ''} <br />{' '}
           <Link href={`/posts/${post?.id}`}>Ler mais</Link>
@@ -67,7 +67,9 @@ const PostCard = ({ post }: PostCardProps) => {
         <S.AuthorContainer>
           <Badge comments={20} likes={120} />
           {post?.user && (
-            <Avatar name={post?.user?.name} userName={post?.user?.username} />
+            <Link href={`/users/${post.userId}`}>
+              <Avatar name={post?.user?.name} userName={post?.user?.username} />
+            </Link>
           )}
         </S.AuthorContainer>
       </S.PostContent>

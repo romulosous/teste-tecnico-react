@@ -2,7 +2,8 @@
 import styled from 'styled-components'
 
 export const Avatar = styled.div`
-  text-align: center;
+  text-decoration: none;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,4 +22,5 @@ export const AvatarName = styled.p`
 export const AvatarUserName = styled.span`
   font-weight: 400;
   font-size: 1.5rem;
+  color: #ef4723;
 `

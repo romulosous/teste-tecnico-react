@@ -5,6 +5,7 @@ import Avatar from '@/components/atoms/Avatar'
 import Card from '@/components/atoms/Card'
 import PostComment from '@/components/Organisms/PostComment'
 import * as S from './style'
+import Link from 'next/link'
 
 interface Comment {
   postId: number
@@ -37,7 +38,12 @@ export const PostDetails = ({ post, comments }: PostDetailsProps) => {
             <S.PostDate>2 min</S.PostDate>
             <S.AvatarContainer>
               Autor:
-              <Avatar name={post.user.name} userName={post.user.username} />
+              <Link href={`/users/${post.userId}`}>
+                <Avatar
+                  name={post?.user?.name}
+                  userName={post?.user?.username}
+                />
+              </Link>
             </S.AvatarContainer>
           </S.PostContent>
         </Card>
