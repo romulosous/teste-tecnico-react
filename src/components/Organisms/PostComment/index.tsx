@@ -3,8 +3,8 @@ import Avatar from '@/components/atoms/Avatar'
 import Paragraph from '@/components/atoms/Paragraph'
 import Badge from '@/components/atoms/Badge'
 import Card from '@/components/atoms/Card'
-import * as S from './style'
 import { useRouter } from 'next/navigation'
+import * as S from './style'
 
 interface PostCommentProps {
   name: string
