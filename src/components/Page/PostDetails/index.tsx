@@ -1,10 +1,10 @@
 'use client'
-import * as S from './style'
 import Header from '@/components/Organisms/Header'
 import { Post } from '@/components/Organisms/PostCard'
 import Avatar from '@/components/atoms/Avatar'
 import Card from '@/components/atoms/Card'
 import PostComment from '@/components/Organisms/PostComment'
+import * as S from './style'
 
 interface Comment {
   postId: number
@@ -23,6 +23,8 @@ export const PostDetails = ({ post, comments }: PostDetailsProps) => {
   if (!post) {
     return <div>Loading...</div>
   }
+
+  console.log('comments', comments)
 
   return (
     <S.Container>
@@ -52,6 +54,7 @@ export const PostDetails = ({ post, comments }: PostDetailsProps) => {
                     name={comment.name}
                     email={comment.email}
                     body={comment.body}
+                    postId={comment.postId}
                   />
                 )
               })}

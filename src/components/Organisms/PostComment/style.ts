@@ -16,6 +16,7 @@ export const PostHeader = styled.div`
 export const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 
 export const EmailUser = styled.span`

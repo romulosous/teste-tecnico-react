@@ -25,7 +25,7 @@ interface Company {
   bs: string
 }
 
-interface User {
+export interface User {
   id: number
   name: string
   username: string
@@ -50,23 +50,25 @@ const PostCard = ({ post }: PostCardProps) => {
   const router = useRouter()
 
   const navigateToPostDetails = () => {
-    router.push(`/posts/${post.id}`)
+    router.push(`/posts/${post?.id}`)
   }
 
   return (
     <Card onClick={navigateToPostDetails}>
       <S.PostContent>
         <S.PostHeader>
-          <S.Title>{post.title}</S.Title>
+          <S.Title>{post?.title}</S.Title>
         </S.PostHeader>
         <S.PostBody>
-          {post.body.slice(0, 100)}
-          {post.body.length > 100 ? ' ...' : ''} <br />{' '}
-          <Link href={`/posts/${post.id}`}>Ler mais</Link>
+          {post?.body.slice(0, 100)}
+          {post?.body.length > 100 ? ' ...' : ''} <br />{' '}
+          <Link href={`/posts/${post?.id}`}>Ler mais</Link>
         </S.PostBody>
         <S.AuthorContainer>
           <Badge comments={20} likes={120} />
-          <Avatar name={post.user.name} userName={post.user.username} />
+          {post?.user && (
+            <Avatar name={post?.user?.name} userName={post?.user?.username} />
+          )}
         </S.AuthorContainer>
       </S.PostContent>
     </Card>
