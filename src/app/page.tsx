@@ -1,4 +1,5 @@
 'use client'
+import Loading from '@/components/atoms/Loading'
 import HomePage from '@/components/Page/HomePage'
 import { IPost, IPostWithUser } from '@/interfaces/post.interface'
 import { IUser } from '@/interfaces/user.interface'
@@ -52,7 +53,7 @@ export default function Home() {
   }, [limit, page])
 
   if (loading) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   return <HomePage data={postsWithUsers} users={users} />

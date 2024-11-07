@@ -1,4 +1,5 @@
 'use client'
+import Loading from '@/components/atoms/Loading'
 import * as S from './style'
 import Header from '@/components/organisms/Header'
 import PostCard from '@/components/organisms/PostCard'
@@ -17,7 +18,7 @@ export const HomePage = ({ data, users }: HomePageProps) => {
   // const searchParams = useSearchParams()
 
   if (!data) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   // const handlePageChange = (page: number) => {

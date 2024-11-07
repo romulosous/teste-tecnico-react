@@ -7,6 +7,7 @@ import * as S from './style'
 import Link from 'next/link'
 import { IPost } from '@/interfaces/post.interface'
 import { IComment } from '@/interfaces/comment.interface'
+import Loading from '@/components/atoms/Loading'
 
 interface PostDetailsProps {
   post: IPost
@@ -15,7 +16,7 @@ interface PostDetailsProps {
 
 export const PostDetails = ({ post, comments }: PostDetailsProps) => {
   if (!post) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   return (

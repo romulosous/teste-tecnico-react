@@ -6,6 +6,7 @@ import * as S from './style'
 import UserList from '@/components/organisms/UserList'
 import { IUser } from '@/interfaces/user.interface'
 import { IPost } from '@/interfaces/post.interface'
+import Loading from '@/components/atoms/Loading'
 
 interface UserDetailsProps {
   posts: IPost[]
@@ -15,7 +16,7 @@ interface UserDetailsProps {
 
 export const UserDetails = ({ posts, users, user }: UserDetailsProps) => {
   if (!user) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   return (
