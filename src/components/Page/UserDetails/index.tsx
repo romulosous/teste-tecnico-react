@@ -3,13 +3,15 @@ import Header from '@/components/Organisms/Header'
 import PostCard, { Post, User } from '@/components/Organisms/PostCard'
 import UserInfoCard from '@/components/Organisms/UserInfoCard'
 import * as S from './style'
+import UserList from '@/components/Organisms/UserList'
 
 interface UserDetailsProps {
   posts: Post[]
+  users: User[]
   user: User
 }
 
-export const UserDetails = ({ posts, user }: UserDetailsProps) => {
+export const UserDetails = ({ posts, users, user }: UserDetailsProps) => {
   if (!user) {
     return <div>Loading...</div>
   }
@@ -21,12 +23,17 @@ export const UserDetails = ({ posts, user }: UserDetailsProps) => {
         <UserInfoCard user={user} />
 
         <S.UserPostsContainer>
-          <S.PostTitle>Posts</S.PostTitle>
-          <S.PostContent>
-            {posts?.map((post: Post) => {
-              return <PostCard key={post.id} post={post} />
-            })}
-          </S.PostContent>
+          <div style={{ flex: 2 }}>
+            <S.PostTitle>Posts</S.PostTitle>
+            <S.PostContent>
+              {posts?.map((post: Post) => {
+                return <PostCard key={post.id} post={post} />
+              })}
+            </S.PostContent>
+          </div>
+          <S.UserListContainer>
+            <UserList users={users} />
+          </S.UserListContainer>
         </S.UserPostsContainer>
       </div>
     </S.Container>

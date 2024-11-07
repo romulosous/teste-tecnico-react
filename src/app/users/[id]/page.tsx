@@ -11,30 +11,29 @@ export default async function PostsPage({ params }: PostsPageProps) {
     return null
   }
 
-  const responsePost = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const dataPost = await responsePost.json()
-
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${dataPost.userId}`,
+    `https://jsonplaceholder.typicode.com/users/${params.id}`,
     {
       cache: 'force-cache'
     }
   )
   const data = await response.json()
 
-  // https://jsonplaceholder.typicode.com/posts?_limit=10&_page=3?userId=3
   const responsePosts = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=${params.id}`,
+    `https://jsonplaceholder.typicode.com/posts?userId=${data.id}`,
     {
       cache: 'force-cache'
     }
   )
   const posts = await responsePosts.json()
 
-  return <UserDetails user={data} posts={posts} />
+  const responseAllUsers = await fetch(
+    `https://jsonplaceholder.typicode.com/users/`,
+    {
+      cache: 'force-cache'
+    }
+  )
+  const allUsers = await responseAllUsers.json()
+
+  return <UserDetails user={data} posts={posts} users={allUsers} />
 }

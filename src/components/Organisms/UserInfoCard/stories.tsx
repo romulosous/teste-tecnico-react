@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import UserInfoCard from '.'
 
 export default {
-  title: 'Pages/UserInfoCard',
+  title: 'Organisms/UserInfoCard',
   component: UserInfoCard,
   parameters: {
     nextjs: {

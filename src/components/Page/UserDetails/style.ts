@@ -8,7 +8,6 @@ export const Container = styled.div`
 
 export const UserPostsContainer = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 20px;
   margin-top: 60px;
   margin-bottom: 100px;
@@ -42,4 +41,9 @@ export const PostContent = styled.div`
   margin-bottom: 100px;
   align-items: flex-start;
   max-width: 720px;
+`
+
+export const UserListContainer = styled.div`
+  display: flex;
+  flex: 1;
 `

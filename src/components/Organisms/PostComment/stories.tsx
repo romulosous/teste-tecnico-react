@@ -6,11 +6,11 @@ export default {
   title: 'Organisms/PostComment',
   component: PostComment,
   parameters: {
-    layout: 'fullscreen'
+    nextjs: {
+      appDirectory: true
+    }
   }
 } as Meta
-
-export const Default: StoryObj = {}
 
 const mock = {
   post: {
@@ -47,6 +47,15 @@ const mock = {
   name: 'id labore ex et quam laborum',
   email: 'Eliseo@gardner.biz',
   body: 'laudantium enim quasi est quidem magnam voluptate ipsam eos\ntempora quo necessitatibus\ndolor quam autem quasi\nreiciendis et nam sapiente accusantium'
+}
+
+export const Default: StoryObj = {
+  args: {
+    post: mock.post,
+    name: mock.name,
+    email: mock.email,
+    body: mock.body
+  }
 }
 
 export const Basic: StoryObj = {
