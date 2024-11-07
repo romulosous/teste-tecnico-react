@@ -24,13 +24,11 @@ export const PostDetails = ({ post, comments }: PostDetailsProps) => {
     return <div>Loading...</div>
   }
 
-  console.log('comments', comments)
-
   return (
     <S.Container>
-      <Card>
-        <div className="container">
-          <Header />
+      <div className="container">
+        <Header />
+        <Card>
           <S.PostContent>
             <S.PostHeader>
               <S.Title>{post.title}</S.Title>
@@ -42,25 +40,24 @@ export const PostDetails = ({ post, comments }: PostDetailsProps) => {
               <Avatar name={post.user.name} userName={post.user.username} />
             </S.AvatarContainer>
           </S.PostContent>
+        </Card>
 
-          <S.CommentsTitle>Seção de Comentários</S.CommentsTitle>
+        <S.CommentsTitle>Seção de Comentários</S.CommentsTitle>
 
-          <S.Comments>
-            {comments.length > 0 &&
-              comments?.map((comment) => {
-                return (
-                  <PostComment
-                    key={comment.id}
-                    name={comment.name}
-                    email={comment.email}
-                    body={comment.body}
-                    postId={comment.postId}
-                  />
-                )
-              })}
-          </S.Comments>
-        </div>
-      </Card>
+        <S.Comments>
+          {comments.length > 0 &&
+            comments?.map((comment) => {
+              return (
+                <PostComment
+                  key={comment.id}
+                  name={comment.name}
+                  email={comment.email}
+                  body={comment.body}
+                />
+              )
+            })}
+        </S.Comments>
+      </div>
     </S.Container>
   )
 }

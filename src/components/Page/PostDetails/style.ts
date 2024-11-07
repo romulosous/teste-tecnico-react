@@ -11,7 +11,7 @@ export const PostContent = styled.div`
   flex-direction: column;
   gap: 20px;
   margin-top: 60px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
   align-items: flex-start;
 `
 
@@ -55,7 +55,8 @@ export const AvatarContainer = styled.div`
 export const CommentsTitle = styled.h3`
   font-size: 2.5rem;
   font-weight: 600;
-  margin: 20px 0;
+  margin-top: 60px;
+  margin-bottom: 20px;
 `
 
 export const Comments = styled.div`

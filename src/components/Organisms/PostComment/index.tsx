@@ -10,15 +10,17 @@ interface PostCommentProps {
   name: string
   email: string
   body: string
-  postId: number
+  postId?: number
 }
 
-const PostComment = ({ name, email, body, postId }: PostCommentProps) => {
+const PostComment = ({ name, email, body }: PostCommentProps) => {
   const router = useRouter()
 
   const navigateToUserDetails = () => {
-    console.log('postId', postId)
-    router.push(`/users/${postId}`)
+    // Nesse trecho de código, o id é gerado de forma aleatória, pois no endpoint de comentarios não temos o id do usuário
+    // Tentei o uso do email, mas o email do endpoint user é diferente do email do endpoint comments
+    const id = Math.floor(Math.random() * 10) + 1
+    router.push(`/users/${id}`)
   }
 
   return (
