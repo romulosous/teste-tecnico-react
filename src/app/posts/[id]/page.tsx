@@ -1,3 +1,5 @@
+import PostDetails from '@/components/Page/PostDetails'
+
 interface PostsPageProps {
   params: {
     id?: string
@@ -16,6 +18,20 @@ export default async function PostsPage({ params }: PostsPageProps) {
     }
   )
   const data = await response.json()
-  console.log('response detalhe', data)
-  return <div>Post details</div>
+
+  const responseUser = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${data?.userId}`,
+    {
+      cache: 'force-cache'
+    }
+  )
+
+  const user = await responseUser.json()
+
+  const postData = {
+    ...data,
+    user
+  }
+
+  return <PostDetails post={postData} />
 }
