@@ -9,9 +9,26 @@ export const Container = styled.div`
 export const PostContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  cursor: pointer;
-  width: 100%;
-  max-width: 800px;
-  margin-top: 40px;
+  gap: 10px;
+`
+
+export const PostHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const Title = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+`
+
+export const PostBody = styled.p`
+  font-size: 1.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  font-weight: 400;
 `

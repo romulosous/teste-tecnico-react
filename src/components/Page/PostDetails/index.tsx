@@ -1,13 +1,14 @@
+'use client'
+import Badge from '@/components/atoms/Badge'
 import * as S from './style'
 import Header from '@/components/Organisms/Header'
-import PostCard, { Post } from '@/components/Organisms/PostCard'
+import { Post } from '@/components/Organisms/PostCard'
 
 interface PostDetailsProps {
   post: Post
 }
 
 export const PostDetails = ({ post }: PostDetailsProps) => {
-  console.log('post>>>', post)
   if (!post) {
     return <div>Loading...</div>
   }
@@ -17,7 +18,12 @@ export const PostDetails = ({ post }: PostDetailsProps) => {
       <div className="container">
         <Header />
         <S.PostContent>
-          <PostCard post={post} />
+          {/* <PostCard post={post} /> */}
+          <S.PostHeader>
+            <S.Title>{post.title}</S.Title>
+          </S.PostHeader>
+          <S.PostBody>{post.body}</S.PostBody>
+          <Badge comments={20} likes={120} />
         </S.PostContent>
         {/* Comentarios */}
       </div>
