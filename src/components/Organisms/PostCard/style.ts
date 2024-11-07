@@ -32,3 +32,10 @@ export const PostBody = styled.p`
 export const PostDate = styled.span`
   font-size: 1.5rem;
 `
+
+export const AuthorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+`
