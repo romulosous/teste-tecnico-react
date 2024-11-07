@@ -1,18 +1,20 @@
 'use client'
 import * as S from './style'
 import Header from '@/components/Organisms/Header'
-import PostCard, { Post, User } from '@/components/Organisms/PostCard'
+import PostCard from '@/components/Organisms/PostCard'
 import UserList from '@/components/Organisms/UserList'
+import { IPost } from '@/interfaces/post.interface'
+import { IUser } from '@/interfaces/user.interface'
 // import { useRouter, useSearchParams } from 'next/navigation'
 
 interface PostData {
-  posts: Post[]
+  posts: IPost[]
   total: number
 }
 
 interface HomePageProps {
   data: PostData
-  users: User[]
+  users: IUser[]
 }
 
 export const HomePage = ({ data, users }: HomePageProps) => {
@@ -36,7 +38,7 @@ export const HomePage = ({ data, users }: HomePageProps) => {
         <Header />
         <S.PostsContainer>
           <S.PostContent>
-            {data.posts?.map((post: Post) => {
+            {data.posts?.map((post: IPost) => {
               return <PostCard key={post.id} post={post} />
             })}
           </S.PostContent>

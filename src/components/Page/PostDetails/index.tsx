@@ -1,23 +1,16 @@
 'use client'
 import Header from '@/components/Organisms/Header'
-import { Post } from '@/components/Organisms/PostCard'
 import Avatar from '@/components/atoms/Avatar'
 import Card from '@/components/atoms/Card'
 import PostComment from '@/components/Organisms/PostComment'
 import * as S from './style'
 import Link from 'next/link'
-
-interface Comment {
-  postId: number
-  id: number
-  name: string
-  email: string
-  body: string
-}
+import { IPost } from '@/interfaces/post.interface'
+import { IComment } from '@/interfaces/comment.interface'
 
 interface PostDetailsProps {
-  post: Post
-  comments: Comment[]
+  post: IPost
+  comments: IComment[]
 }
 
 export const PostDetails = ({ post, comments }: PostDetailsProps) => {

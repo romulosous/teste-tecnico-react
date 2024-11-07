@@ -1,26 +1,22 @@
 'use client'
-import { Post, User } from '@/components/Organisms/PostCard'
 import HomePage from '@/components/Page/HomePage'
+import { IPost, IPostWithUser } from '@/interfaces/post.interface'
+import { IUser } from '@/interfaces/user.interface'
 
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
-interface PostWithUser {
-  posts: Post[]
-  total: number
-}
 
 export default function Home() {
   const searchParams = useSearchParams()
   const limit = searchParams.get('limit')
   const page = searchParams.get('page')
 
-  const [postsWithUsers, setPostsWithUsers] = useState<PostWithUser>({
+  const [postsWithUsers, setPostsWithUsers] = useState<IPostWithUser>({
     posts: [],
     total: 0
   })
 
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<IUser[]>([])
   const [loading, setLoading] = useState(true)
 
   const fetchPosts = async () => {
@@ -59,11 +55,11 @@ export default function Home() {
       setUsers(users)
 
       const usersMap: { [key: number]: unknown } = {}
-      users.forEach((user: User) => {
+      users.forEach((user: IUser) => {
         usersMap[user.id] = user
       })
 
-      const postsWithUsers = posts.map((post: Post) => ({
+      const postsWithUsers = posts.map((post: IPost) => ({
         ...post,
         user: usersMap[post.userId]
       }))

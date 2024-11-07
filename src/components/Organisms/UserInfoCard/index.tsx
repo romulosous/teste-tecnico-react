@@ -1,9 +1,9 @@
 'use client'
-import { User } from '../PostCard'
+import { IUser } from '@/interfaces/user.interface'
 import * as S from './style'
 
 interface UserInfoCardProps {
-  user: User
+  user: IUser
 }
 const UserInfoCard = ({ user }: UserInfoCardProps) => {
   return (

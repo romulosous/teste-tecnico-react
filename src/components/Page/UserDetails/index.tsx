@@ -1,14 +1,16 @@
 'use client'
 import Header from '@/components/Organisms/Header'
-import PostCard, { Post, User } from '@/components/Organisms/PostCard'
+import PostCard from '@/components/Organisms/PostCard'
 import UserInfoCard from '@/components/Organisms/UserInfoCard'
 import * as S from './style'
 import UserList from '@/components/Organisms/UserList'
+import { IUser } from '@/interfaces/user.interface'
+import { IPost } from '@/interfaces/post.interface'
 
 interface UserDetailsProps {
-  posts: Post[]
-  users: User[]
-  user: User
+  posts: IPost[]
+  users: IUser[]
+  user: IUser
 }
 
 export const UserDetails = ({ posts, users, user }: UserDetailsProps) => {
@@ -26,7 +28,7 @@ export const UserDetails = ({ posts, users, user }: UserDetailsProps) => {
           <div style={{ flex: 2 }}>
             <S.PostTitle>Posts</S.PostTitle>
             <S.PostContent>
-              {posts?.map((post: Post) => {
+              {posts?.map((post: IPost) => {
                 return <PostCard key={post.id} post={post} />
               })}
             </S.PostContent>

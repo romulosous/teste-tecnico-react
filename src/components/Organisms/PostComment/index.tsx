@@ -10,7 +10,6 @@ interface PostCommentProps {
   name: string
   email: string
   body: string
-  postId?: number
 }
 
 const PostComment = ({ name, email, body }: PostCommentProps) => {

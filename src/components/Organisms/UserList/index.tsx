@@ -1,11 +1,11 @@
 'use client'
 import { useState } from 'react'
-import { User } from '../PostCard'
 import * as S from './style'
 import Link from 'next/link'
+import { IUser } from '@/interfaces/user.interface'
 
 interface UserListProps {
-  users: User[]
+  users: IUser[]
 }
 const UserList = ({ users }: UserListProps) => {
   const [showAll, setShowAll] = useState(false)
