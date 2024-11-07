@@ -21,8 +21,6 @@ export const HomePage = ({ data }: HomePageProps) => {
     return <div>Loading...</div>
   }
 
-  console.log('posts', data)
-
   const handlePageChange = (page: number) => {
     const params = new URLSearchParams(searchParams.toString())
 
