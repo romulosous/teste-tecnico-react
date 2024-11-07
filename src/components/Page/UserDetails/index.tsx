@@ -1,9 +1,9 @@
 'use client'
-import Header from '@/components/Organisms/Header'
-import PostCard from '@/components/Organisms/PostCard'
-import UserInfoCard from '@/components/Organisms/UserInfoCard'
+import Header from '@/components/organisms/Header'
+import PostCard from '@/components/organisms/PostCard'
+import UserInfoCard from '@/components/organisms/UserInfoCard'
 import * as S from './style'
-import UserList from '@/components/Organisms/UserList'
+import UserList from '@/components/organisms/UserList'
 import { IUser } from '@/interfaces/user.interface'
 import { IPost } from '@/interfaces/post.interface'
 
