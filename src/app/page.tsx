@@ -1,5 +1,5 @@
 'use client'
-import { Post } from '@/components/Organisms/PostCard'
+import { Post, User } from '@/components/Organisms/PostCard'
 import HomePage from '@/components/Page/HomePage'
 
 import { useSearchParams } from 'next/navigation'
@@ -19,6 +19,8 @@ export default function Home() {
     posts: [],
     total: 0
   })
+
+  const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
 
   const fetchPosts = async () => {
@@ -40,30 +42,24 @@ export default function Home() {
     return data.length
   }
 
+  const fetchAllUsers = async () => {
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
+      cache: 'force-cache'
+    })
+    const data = await response.json()
+    return data
+  }
+
   const fetchPostsWithUsers = async () => {
     try {
       const posts = await fetchPosts()
       const totalPosts = await fetchTotalPosts()
-      const uniqueUserIds = posts.reduce(
-        (acc: number[], post: { userId: number }) => {
-          if (!acc.includes(post.userId)) {
-            acc.push(post.userId)
-          }
-          return acc
-        },
-        []
-      )
+      const users = await fetchAllUsers()
 
-      const userPromises = uniqueUserIds.map((userId: number) =>
-        fetch(`https://jsonplaceholder.typicode.com/users/${userId}`).then(
-          (res) => res.json()
-        )
-      )
-
-      const users = await Promise.all(userPromises)
+      setUsers(users)
 
       const usersMap: { [key: number]: unknown } = {}
-      users.forEach((user) => {
+      users.forEach((user: User) => {
         usersMap[user.id] = user
       })
 
@@ -88,5 +84,5 @@ export default function Home() {
     return <div>Loading...</div>
   }
 
-  return <HomePage data={postsWithUsers} />
+  return <HomePage data={postsWithUsers} users={users} />
 }
