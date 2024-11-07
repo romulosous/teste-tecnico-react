@@ -3,17 +3,12 @@ import * as S from './style'
 import Header from '@/components/Organisms/Header'
 import PostCard from '@/components/Organisms/PostCard'
 import UserList from '@/components/Organisms/UserList'
-import { IPost } from '@/interfaces/post.interface'
+import { IPost, IPostResponse } from '@/interfaces/post.interface'
 import { IUser } from '@/interfaces/user.interface'
 // import { useRouter, useSearchParams } from 'next/navigation'
 
-interface PostData {
-  posts: IPost[]
-  total: number
-}
-
 interface HomePageProps {
-  data: PostData
+  data: IPostResponse
   users: IUser[]
 }
 

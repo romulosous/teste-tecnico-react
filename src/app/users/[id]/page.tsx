@@ -1,4 +1,6 @@
 import UserDetails from '@/components/Page/UserDetails'
+import { fetchPostsByUserId } from '@/services/post'
+import { fetchAllUsers, fetchUserById } from '@/services/user'
 
 interface PostsPageProps {
   params: {
@@ -11,29 +13,9 @@ export default async function PostsPage({ params }: PostsPageProps) {
     return null
   }
 
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${params.id}`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const data = await response.json()
+  const user = await fetchUserById(params.id)
+  const userPosts = await fetchPostsByUserId(user.id)
+  const allUsers = await fetchAllUsers()
 
-  const responsePosts = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=${data.id}`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const posts = await responsePosts.json()
-
-  const responseAllUsers = await fetch(
-    `https://jsonplaceholder.typicode.com/users/`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const allUsers = await responseAllUsers.json()
-
-  return <UserDetails user={data} posts={posts} users={allUsers} />
+  return <UserDetails user={user} posts={userPosts} users={allUsers} />
 }

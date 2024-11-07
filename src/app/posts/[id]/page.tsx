@@ -1,4 +1,7 @@
 import PostDetails from '@/components/Page/PostDetails'
+import { fetchCommentsByPostId } from '@/services/comment'
+import { fetchPostById } from '@/services/post'
+import { fetchUserById } from '@/services/user'
 
 interface PostsPageProps {
   params: {
@@ -11,33 +14,14 @@ export default async function PostsPage({ params }: PostsPageProps) {
     return null
   }
 
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const data = await response.json()
+  const post = await fetchPostById(params.id)
 
-  const responseUser = await fetch(
-    `https://jsonplaceholder.typicode.com/users/${data?.userId}`,
-    {
-      cache: 'force-cache'
-    }
-  )
+  const user = await fetchUserById(post.userId)
 
-  const user = await responseUser.json()
-
-  const responseCommentsPost = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}/comments`,
-    {
-      cache: 'force-cache'
-    }
-  )
-  const comments = await responseCommentsPost.json()
+  const comments = await fetchCommentsByPostId(params.id)
 
   const postData = {
-    ...data,
+    ...post,
     user
   }
 
