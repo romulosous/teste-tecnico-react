@@ -3,6 +3,7 @@ import Badge from '@/components/atoms/Badge'
 import * as S from './style'
 import Header from '@/components/Organisms/Header'
 import { Post } from '@/components/Organisms/PostCard'
+import Avatar from '@/components/atoms/Avatar'
 
 interface PostDetailsProps {
   post: Post
@@ -18,12 +19,12 @@ export const PostDetails = ({ post }: PostDetailsProps) => {
       <div className="container">
         <Header />
         <S.PostContent>
-          {/* <PostCard post={post} /> */}
           <S.PostHeader>
             <S.Title>{post.title}</S.Title>
           </S.PostHeader>
           <S.PostBody>{post.body}</S.PostBody>
           <Badge comments={20} likes={120} />
+          <Avatar name={post.user.name} userName={post.user.username} />
         </S.PostContent>
         {/* Comentarios */}
       </div>
