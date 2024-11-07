@@ -11,17 +11,19 @@ export const PostContent = styled.div`
   flex-direction: column;
   gap: 20px;
   margin-top: 60px;
+  margin-bottom: 100px;
   align-items: flex-start;
 `
 
 export const PostHeader = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
   align-items: center;
 `
 
 export const Title = styled.h2`
-  font-size: 3.2rem;
+  font-size: 3.5rem;
   font-weight: 600;
 `
 
@@ -34,4 +36,30 @@ export const PostBody = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   font-weight: 400;
+`
+
+export const PostDate = styled.span`
+  font-size: 1.5rem;
+`
+
+export const AvatarContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 10px;
+  font-size: 1.75rem;
+  font-weight: 600;
+`
+
+export const CommentsTitle = styled.h3`
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 20px 0;
+`
+
+export const Comments = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `

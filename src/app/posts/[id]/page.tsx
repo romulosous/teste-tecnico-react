@@ -28,10 +28,18 @@ export default async function PostsPage({ params }: PostsPageProps) {
 
   const user = await responseUser.json()
 
+  const responseCommentsPost = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params.id}/comments`,
+    {
+      cache: 'force-cache'
+    }
+  )
+  const comments = await responseCommentsPost.json()
+
   const postData = {
     ...data,
     user
   }
 
-  return <PostDetails post={postData} />
+  return <PostDetails post={postData} comments={comments} />
 }
